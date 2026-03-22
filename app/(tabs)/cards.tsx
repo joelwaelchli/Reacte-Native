@@ -1,10 +1,17 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import { router } from 'expo-router';
+import React from 'react';
+import { Button, Text, View } from 'react-native';
 
 const Cards = () => {
+
+  const handleAddCard = () => {
+    router.push("/(tabs)/addCard");
+  };
+
   return (
-    <View>
-      <Text>Cards</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Cards</Text>
+        <Button title="Karte hinzufügen" onPress={handleAddCard} />
     </View>
   )
 }

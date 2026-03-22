@@ -51,6 +51,7 @@ export default function AuthScreen() {
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={myStyles.container}>
         <Text style={myStyles.title}>Welcome</Text>
+
         <TextInput 
           style={myStyles.input} 
           placeholder="Email" 
@@ -59,7 +60,6 @@ export default function AuthScreen() {
           autoCapitalize="none"
         />
         <TextInput 
-          ref={passwordRef}
           style={myStyles.input} 
           placeholder="Passwort" 
           value={password} 

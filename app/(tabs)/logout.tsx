@@ -1,13 +1,13 @@
 import { useRouter } from 'expo-router';
-import * as SecureStore from 'expo-secure-store';
 import { StyleSheet } from 'react-native';
+import { tokenStorage } from '../storage/storage';
 
 const logout = () => {
 const router = useRouter();
 
     const logout = async () => {
       
-      await SecureStore.deleteItemAsync('userToken');
+      await tokenStorage.removeToken();
       router.replace("/");
     };
 
