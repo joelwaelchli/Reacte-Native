@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 
 const Add = () => {
   return (
@@ -10,5 +10,3 @@ const Add = () => {
 }
 
 export default Add
-
-const styles = StyleSheet.create({})

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-const register = () => {
+const Cards = () => {
   return (
     <View>
-      <Text>register</Text>
+      <Text>Cards</Text>
     </View>
   )
 }
 
-export default register
+export default Cards

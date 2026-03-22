@@ -1,12 +1,18 @@
 import { Stack } from 'expo-router'
 import React from 'react'
+import { StatusBar } from 'react-native'
 
 const RootLayout = () => {
   return (
-    <Stack>
-        <Stack.Screen name="index"></Stack.Screen>
-        <Stack.Screen name="profile"></Stack.Screen>
-    </Stack>
+    <>
+      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
+      <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen name="register" options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen name="profile" options={{ headerShown: false }}></Stack.Screen>
+      </Stack>
+    </>
   )
 }
 

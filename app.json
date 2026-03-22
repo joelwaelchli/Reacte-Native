@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "temp-expo",
-    "slug": "temp-expo",
-    "version": "1.0.0",
+    "name": "N-Deck",
+    "slug": "n-deck",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "tempexpo",
+    "scheme": "n-deck",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
