@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity } from 'react-native';
 import api from './api/api';
 import { tokenStorage } from './storage/storage';
@@ -9,7 +9,6 @@ export default function AuthScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(true);
-  const passwordRef = useRef(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -69,6 +68,8 @@ export default function AuthScreen() {
         <TouchableOpacity onPress={handleAuth} disabled={loading}>
           <Text style={myStyles.login}>{loading ? "Lädt..." : "Anmelden"}</Text>
         </TouchableOpacity>
+
+        
       </ScrollView>
     </KeyboardAvoidingView>
   );

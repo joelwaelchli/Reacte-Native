@@ -1,21 +1,28 @@
 import { useRouter } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { tokenStorage } from '../storage/storage';
 
-const logout = () => {
-const router = useRouter();
+const Logout = () => {
+  const router = useRouter();
 
-    const logout = async () => {
-      
-      await tokenStorage.removeToken();
-      router.replace("/");
-    };
+  const handleLogout = async () => {
+    await tokenStorage.removeToken();
+    router.replace("/");
+  };
 
   return (
-    logout()
-  )
-}
+    <TouchableOpacity onPress={handleLogout} style={styles.container}>
+      <Text>Logout</Text>
+    </TouchableOpacity>
+  );
+};
 
-export default logout
+export default Logout;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

@@ -1,8 +1,7 @@
 import { useRouter } from 'expo-router';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ActivityIndicator, Alert, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity } from 'react-native';
 import api from './api/api';
-import { tokenStorage } from './storage/storage';
 import { myStyles } from './style/styleIndex';
 
 export default function AuthScreen() {
@@ -11,18 +10,6 @@ export default function AuthScreen() {
   const [loading, setLoading] = useState(true);
   const passwordRef = useRef(null);
   const router = useRouter();
-
-  useEffect(() => {
-    const checkLogin = async () => {
-      const token = await tokenStorage.getToken(); 
-      if (token) {
-        router.replace("/(tabs)/home");
-      } else {
-        setLoading(false);
-      }
-    };
-    checkLogin();
-  }, [router]);
 
   const handleAuth = async () => {
     if (!email.trim() || !password.trim()) {
@@ -33,12 +20,10 @@ export default function AuthScreen() {
     setLoading(true);
     try {
       const response = await api.post('/register', { email, password });
-
-      await tokenStorage.saveToken(response.data.token);
       router.replace("/(tabs)/home");
 
     } catch (error) {
-      Alert.alert("Login fehlgeschlagen", (error as Error).message || "Daten prüfen.");
+      Alert.alert("Registrierung fehlgeschlagen", (error as Error).message || "Daten prüfen.");
       setLoading(false);
     }
   };
@@ -67,7 +52,7 @@ export default function AuthScreen() {
           secureTextEntry
         />
         <TouchableOpacity onPress={handleAuth} disabled={loading}>
-          <Text style={myStyles.login}>{loading ? "Lädt..." : "Regristrieren"}</Text>
+          <Text style={myStyles.login}>{loading ? "Lädt..." : "Registrieren"}</Text>
         </TouchableOpacity>
       </ScrollView>
     </KeyboardAvoidingView>

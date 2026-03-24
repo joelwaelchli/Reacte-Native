@@ -23,7 +23,6 @@ export const myStyles = StyleSheet.create({
     marginBottom: 15, 
     borderRadius: 12, 
     backgroundColor: '#fff',
-    marginBottom: 20,
     alignItems: 'center',
   },
 

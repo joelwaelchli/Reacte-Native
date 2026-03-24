@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { router } from 'expo-router';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
 import React, { useEffect } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { tokenStorage } from '../storage/storage';
 
 interface CustomJwtPayload extends JwtPayload {
@@ -18,26 +18,25 @@ const AuthCheckScreen = () => {
         const token = await tokenStorage.getToken();
 
         if (!token) {
-
-          router.replace("/index");
+          router.replace("/");
         } else {
           const decoded = jwtDecode<CustomJwtPayload>(token);
           const userId = decoded.id; 
           console.log("Gefundene User-ID:", userId);
+          router.replace("/(tabs)/home");
         }
       } catch (error) {
         console.error("Fehler beim Abfragen des Tokens", error);
-        router.replace("/(tabs)/home");
+        router.replace("/");
       }
     };
 
     checkUserToken();
   }, [navigation]);
 
-
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text></Text>
+      
     </View>
   );
 };
