@@ -5,6 +5,8 @@ const Add = () => {
   return (
     <View>
       <Text>Add</Text>
+
+    
     </View>
   )
 }

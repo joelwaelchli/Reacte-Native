@@ -11,7 +11,7 @@ export default function AuthScreen() {
   const passwordRef = useRef(null);
   const router = useRouter();
 
-  const handleAuth = async () => {
+  const handleRegister = async () => {
     if (!email.trim() || !password.trim()) {
       Alert.alert("Fehler", "Bitte alles ausfüllen.");
       return;
@@ -35,7 +35,7 @@ export default function AuthScreen() {
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={myStyles.container}>
-        <Text style={myStyles.title}>Welcome</Text>
+        <Text style={myStyles.title}>Register</Text>
         <TextInput 
           style={myStyles.input} 
           placeholder="Email" 
@@ -51,7 +51,7 @@ export default function AuthScreen() {
           onChangeText={setPassword} 
           secureTextEntry
         />
-        <TouchableOpacity onPress={handleAuth} disabled={loading}>
+        <TouchableOpacity onPress={handleRegister} disabled={loading}>
           <Text style={myStyles.login}>{loading ? "Lädt..." : "Registrieren"}</Text>
         </TouchableOpacity>
       </ScrollView>

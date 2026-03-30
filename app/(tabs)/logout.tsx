@@ -1,28 +1,20 @@
-import { useRouter } from 'expo-router';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { tokenStorage } from '../storage/storage';
+"use client";
 
-const Logout = () => {
+import { useRouter } from "expo-router";
+import { useEffect } from "react";
+import { tokenStorage } from "../storage/storage";
+
+export default function LogoutPage() {
   const router = useRouter();
 
-  const handleLogout = async () => {
-    await tokenStorage.removeToken();
-    router.replace("/");
-  };
+  useEffect(() => {
+    const doLogout = async () => {
+      await tokenStorage.removeToken();
+      router.replace("/");
+    };
 
-  return (
-    <TouchableOpacity onPress={handleLogout} style={styles.container}>
-      <Text>Logout</Text>
-    </TouchableOpacity>
-  );
-};
+    doLogout();
+  }, [router]);
 
-export default Logout;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+  return null; 
+}
