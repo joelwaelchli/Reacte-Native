@@ -1,7 +1,7 @@
 import { Platform, StyleSheet } from 'react-native';
 
 export const myStyles = StyleSheet.create({
-  topSection: {
+  top: {
     paddingTop: 80,
     paddingBottom: 60,
     justifyContent: 'center',

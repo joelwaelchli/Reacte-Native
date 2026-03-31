@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "N-Deck",
-    "slug": "n-deck",
+    "name": "JL-Trac",
+    "slug": "jl-trac",
     "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "n-deck",
+    "scheme": "jl-trac",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -49,8 +49,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "b08f25c2-3a32-4e46-b698-a7a30dd47454"
+        "projectId": "e844d9d2-cb43-4fd5-ac46-5d619d4f7980"
       }
-    }
+    },
+    "owner": "jl-company"
   }
 }

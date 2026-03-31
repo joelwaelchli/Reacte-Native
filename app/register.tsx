@@ -33,9 +33,16 @@ export default function AuthScreen() {
   }
 
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={myStyles.container}>
-        <Text style={myStyles.title}>Register</Text>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
+      style={{ flex: 1 }}
+    >
+      <ScrollView
+        contentContainerStyle={[myStyles.top, { flexGrow: 1 }]}
+        keyboardShouldPersistTaps="handled"
+      >
+        <Text style={myStyles.logoText}>Register</Text>
         <TextInput 
           style={myStyles.input} 
           placeholder="Email" 
@@ -52,7 +59,7 @@ export default function AuthScreen() {
           secureTextEntry
         />
         <TouchableOpacity onPress={handleRegister} disabled={loading}>
-          <Text style={myStyles.login}>{loading ? "Lädt..." : "Registrieren"}</Text>
+          <Text style={myStyles.loginButton}>{loading ? "Lädt..." : "Registrieren"}</Text>
         </TouchableOpacity>
       </ScrollView>
     </KeyboardAvoidingView>

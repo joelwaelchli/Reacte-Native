@@ -1,7 +1,7 @@
 
 import { useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import api from './api/api';
 import { tokenStorage } from './storage/storage';
 import { myStyles } from './style/styleIndex';
@@ -58,14 +58,24 @@ export default function AuthScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: '#2861d3', alignItems: 'center' }}>
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1, width: '100%', maxWidth: 500 }}>
-        <View style={myStyles.topSection}>
-          <Text style={myStyles.logoText}>JL-Trac</Text>
-        </View>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
+        style={{ flex: 1, width: '100%', maxWidth: 700 }}
+      >
+        <View style={{ flex: 1, width: '100%' }}>
+          <View style={myStyles.top}>
+            <Text style={myStyles.logoText}>JL-Trac</Text>
+          </View>
 
-        <View style={myStyles.bottomSection}>
-          <ScrollView contentContainerStyle={myStyles.scrollContent} showsVerticalScrollIndicator={false} bounces={false}>
-            <Text style={myStyles.welcomeText}>Welcome</Text>
+          <View style={myStyles.bottomSection}>
+            <ScrollView
+              contentContainerStyle={[myStyles.scrollContent, { flexGrow: 1 }]}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              bounces={false}
+            >
+              <Text style={myStyles.welcomeText}>Welcome</Text>
 
             <TextInput
               style={myStyles.input}
@@ -107,6 +117,7 @@ export default function AuthScreen() {
             ) : null}
           </ScrollView>
         </View>
+      </View>
       </KeyboardAvoidingView>
     </View>
   );
